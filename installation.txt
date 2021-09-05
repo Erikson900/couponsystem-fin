@@ -1,0 +1,18 @@
+***** Coupon System
+A Client-Server Coupon System web app.  
+Tech Stack: Java (Spring, Hibernate), Javascript (AngularJS, JQuery) CSS (bootstrap).
+
+***** View
+login in as Admin (Management console usr:admin, psw:1234)
+
+***** Dependencies
+Microsoft SQL Server running
+
+***** How To Run
+1) Upload project into a new maven project, (Tomcat server 9.0)    
+Start the server.
+
+2)create a DataBase with the name Coupon Project Spring
+
+3)work with unsecured chrome
+

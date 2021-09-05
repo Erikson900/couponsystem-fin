@@ -1,0 +1,157 @@
+Coupon system project			  **
+Submitted by:
+------------------------------
+Erik Ostrovsky
+Eli Oren
+------------------------------	  **	
+Class 822 / 107 				  **
+June 26 2019					  **
+*********************************************
+
+This project demonstrate a coupon system based on SQL and java classes.
+The web part of the project is written with html, java Script and angularJS that bounds them together In order to create three Services, one for each client type:
+1.	Administrator – general supervision-in charge of registering users to the system
+2.	Companies –  source to create and publish coupons in the system
+3.	Customers – may purchase coupons published by the companies
+Data about the users: the companies and the customers are registered and saved in SQL tables. This project was written with Microsoft SQL Server and the Eclipse program.
+The created coupons images are taken from another website, and not necessarily connected to the coupons titles.
+Enjoy 
+
+*********************************************
+
+The login page
+The login page submit a form to validate the user’s identity by matching the user name and the password against the relevant table in the DB, 
+(excluding the administrator which his personal login information is saved within the class itself).				            
+The login form is being validated to prevent an error 500 for in complete data.
+On submitting the form the user is directed to one of three pages by the login servlet
+Administrator page – Service
+Company page – Service 
+Customer page – Services
+
+*********************************************
+
+Login error
+when there is a mismatch between the password and the user name or if the user is not registered it Provides an alert.
+
+*********************************************
+
+Services
+As mentioned above there are three Services each are divided into sub partials.		 	                   
+Sub partial is a page that being referred to by the ng-rout directive to display certain contents available within.
+
+*********************************************
+					              
+Administrator Service:     
+Administrator Login Info:
+----------------------
+username: admin
+password: 1234
+----------------------
+Partial: companies
+Description: allow the administrator user to create, update or remove companies from the data base.
+Components: 
+•	Logout component
+•	Insert manipulation table companies table
+•	Coupon sub table – shorten
+•	Create form
+•	Edit form
+                         
+Partial: customers
+Description: allow the administrator user to create, update or remove customers from the data base.
+Components: 
+•	Logout component
+•	Create form
+•	Edit form
+
+******************************************
+
+Company Services      
+Partial: Account
+Description: presents the user login parameters
+Components: 
+•	Logout component
+•	Partial Disabled personal information form, Can only edit Own password and email details.
+
+Partial: coupons
+Description: allow the logged company user to create, update or remove coupons that related to him in the data base.
+Components: 
+•	Logout component
+•	Create form
+•	Edit form
+
+****************************************
+
+Customer Services      
+Partial: Account
+Description: presents the user login parameters
+Components: 
+•	Logout component
+•	Partial Disabled personal information form, Can only edit Own password and email details.
+
+Partial: My coupons
+Description: allow the logged customer user to view his purchased coupons
+Components: 
+•	Logout component
+•	Customer table – view only coupons table
+
+Partial: Available coupons
+Description: allow the logged customer user to view all the purchasable coupons available for him 
+Components: 
+•	Logout component
+•	Customer table – coupons table with purchase option
+
+
+Description: display all the available coupons for the customer, the customer can browse over and view the coupons (advertisement purposes) and purchase them directly from there
+Components: 
+•	Logout component
+
+
+******************************************
+
+Components 
+
+Logout component
+As directed each page in the application must enable logout option, by pressing the logout button located in the top left corner the user may perform a logout by sending a request to the logout servlet
+
+
+*****************************************
+
+Tables
+We can distinguish between two table types:
+One table is of the inserts manipulation –provides the ability to create/remove/ edit inserts’ information (inserts = users (i.e. customers and companies) or coupons)
+•	administrator’s user manipulation 
+•	companies’ coupons  manipulation
+*update and create are done by the aid of forms
+Note: the administrator can’t change the coupons published by the companies nor those that were purchased by the customers
+The other table type is the customers’ coupon tables where the only function available is purchase (or none in viewing the purchased coupons).
+
+
+Functions embedded within the tables
+Edit button
+Clicking the edit button placed within the table’s rows, indicates which user You wish to edit.					 
+On click the edit buttons they display the “edit form“ below the table, with the selected insert’s non editable fields disabled.
+Delete button
+The “Delete” marked by an X allow the user to remove specific inserts from the table and the DB
+
+*****************************************
+
+Forms
+Forms - general
+We can distinguish between 2 forms:
+•	create insert form
+•	edit insert form
+Both form types are relevant only for the administrator and the companies, of course they differ by the insert type as well (companies-coupons, administrator – companies and customers) 
+The form is managed by form validations, required fields and type matching inputs, unless all required fields are met and inserted with the correct format the form may not be sent and the submitting button is disabled.
+The user may toggle between the inserts’ “edit buttons” in the table and the “create insert” button to switch between the form types and the editable inserts.
+Edit Form
+Clicking on the tables “edit” buttons open the Edit form allowing the user to edit the inserts’ editable fields and disabling the option to alter identifying fields.		
+The editable fields are available to change, while still fitting the required types.		             
+When all requirements are met the submitting request button is enabled	
+
+*****************************************
+
+User messages
+After each user request for create/delete/update (or purchase request by customer) is being made, the user is informed of the action results by a message that emerge from the top of the screen, containing a response for successful or failed attempt for the operation.
+Pressing on the OK the window will close it and allow the user to continue.
+
+*******************************************
